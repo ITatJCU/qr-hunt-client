@@ -1,0 +1,40 @@
+<div class="jumbotron" ng-hide="foundCode">
+
+    <div class="hero-unit center">
+        <h1>Code Not Found
+            <small><font face="Tahoma" color="red">Error 404</font></small>
+        </h1>
+        <br/>
+
+        <p>Sneaky...But we're onto you {{player.alias || player.uuid}}.</p>
+    </div>
+</div>
+
+<div class="jumbotron" ng-show="foundCode">
+
+    <div class="hero-unit center">
+        <h1>Congratulations!</h1>
+        <br/>
+
+        <p>You've found code #{{foundCode.gameIndex}} of {{gameCodes.length}}.</p>
+
+
+        <div class="progress" ng-if="gameCodes.length">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}"
+                 aria-valuemin="0" aria-valuemax="100"
+                 style="width: {{progress}}%;">
+                {{progress}}%
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="panel panel-default" ng-show="foundCode">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{foundCode.title}}</h3>
+    </div>
+    <div class="panel-body">
+        {{foundCode.content}}
+    </div>
+</div>

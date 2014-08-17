@@ -1,0 +1,64 @@
+<div class="jumbotron">
+    <h1>Welcome {{player.alias || player.uuid}}</h1>
+
+    <p class="lead" ng-if="!player.scans.length">
+        There have been numerous reports of QR codes lurking throughout the campus and we need your help to find them
+        all!
+        <br/>
+        There
+        <ng-pluralize count="gameCodes.length"
+                      when="{'0': 'are no',
+                     'one': 'is one code',
+                     'other': '{} codes'}">
+        </ng-pluralize>
+        to locate! Hurry, as time is short!
+    </p>
+
+    <p class="lead" ng-if="player.scans.length">
+        It appears you're well on the way to locating all the codes!
+
+        <br/>
+        You've collected {{player.scans.length}} of {{gameCodes.length}} hidden codes.
+    </p>
+
+    <div class="progress" ng-if="gameCodes.length">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}"
+             aria-valuemin="0" aria-valuemax="100"
+             style="width: {{progress}}%;">
+            {{progress}}%
+        </div>
+    </div>
+</div>
+
+<div class="marketing">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <h4><i class="fa fa-users"></i> Leaderboard</h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Alias</th>
+                    <th>Collected</th>
+                    <th>Game Time</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="rank in leaderboard">
+                    <td>{{$index+1}}</td>
+                    <td>{{rank.alias || rank.playerId}}</td>
+                    <td>{{rank.collected}}</td>
+                    <td>{{rank.duration}} seconds</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+        </div>
+    </div>
+</div>
+

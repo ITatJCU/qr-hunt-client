@@ -1,0 +1,35 @@
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <form role="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default btn-danger pull-right" ng-click="reset()">
+                        <i class="fa fa-trash-o"></i> Clear Collection
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <h4><i class="fa fa-qrcode"></i> Your Scans</h4>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Scanned At</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="scan in player.scans">
+                <td>{{scan.gameIndex}}</td>
+                <td>{{scan.title}}</td>
+                <td>{{scan.createdAt}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
