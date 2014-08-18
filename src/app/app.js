@@ -33,6 +33,10 @@ angular.module('qrHunt', [
 
         $scope.progress = 0.0;
 
+        $scope.savePlayer = function () {
+            playerFactory.savePlayer();
+        };
+
         var updatePlayerProgress = function () {
             if ($scope.player && $scope.player.scans && $scope.player.scans.length && $scope.gameCodes.length) {
                 $scope.progress = (($scope.player.scans.length + 0.0) / $scope.gameCodes.length) * 100;

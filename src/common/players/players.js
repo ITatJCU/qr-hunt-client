@@ -32,7 +32,6 @@ angular.module('players', [])
         };
 
         var getPlayer = function () {
-
             $http.get(urlBase + '/' + uuid)
                 .success(function (p) {
                     player = p;
@@ -69,7 +68,7 @@ angular.module('players', [])
 
 
         var resetPlayer = function () {
-            $http.put(urlBase + '/' + new Fingerprint().get() + '/reset')
+            $http.put(urlBase + '/' + uuid + '/reset')
                 .success(function (p) {
                     player = p;
                     notifyObservers();
@@ -79,7 +78,7 @@ angular.module('players', [])
         };
 
         var addScan = function (id) {
-            $http.put(urlBase + '/' + new Fingerprint().get() + '/' + id)
+            $http.put(urlBase + '/' + uuid + '/' + id)
                 .success(function (p) {
                     player = p;
                     notifyObservers();
@@ -88,12 +87,24 @@ angular.module('players', [])
                 });
         };
 
+        playerFactory.savePlayer = function () {
+            if (player && player.uuid == uuid) {
+                $http.put(urlBase + '/' + uuid, player)
+                    .success(function (p) {
+                        playerFactory.reload();
+                    }).error(function (err) {
+                        console.log('qrHunt.services.playerFactory.updatePlayer: Unable to update current player: ' + err.message);
+                    });
+            }
+        };
+
         playerFactory.reload = function () {
             getAllPlayers();
             getPlayer();
             getLeaderboard();
         };
         playerFactory.reload();
+
 
         playerFactory.getPlayer = function () {
             return player;
