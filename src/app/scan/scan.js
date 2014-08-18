@@ -36,26 +36,29 @@ angular.module('qrHunt.scan', [
 
     .controller('ScannedCtrl', function ScannedController($scope, $stateParams, codeFactory, playerFactory) {
         $scope.foundCode = null;
+        $scope.findAttempted = false;
 
         var setFound = function (code) {
+            $scope.findAttempted = true;
             $scope.foundCode = code;
             if (code != null) {
                 playerFactory.scanned(code.id);
                 playerFactory.reload();
             }
         };
-        if ($scope.foundCode == null) {
+        if ($scope.foundCode == null && $scope.codes.length) {
             codeFactory.getCode($stateParams.codeId, function (result) {
                 setFound(result);
             });
+        } else {
+            codeFactory.addObserver(function () {
+                if ($scope.foundCode == null) {
+                    codeFactory.getCode($stateParams.codeId, function (result) {
+                        setFound(result);
+                    });
+                }
+            });
         }
-        codeFactory.addObserver(function () {
-            if ($scope.foundCode == null) {
-                codeFactory.getCode($stateParams.codeId, function (result) {
-                    setFound(result);
-                });
-            }
-        });
 
     })
 ;

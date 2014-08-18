@@ -1,4 +1,4 @@
-<div class="jumbotron" ng-hide="foundCode">
+<div class="jumbotron" ng-hide="foundCode" ng-show="!foundCode && findAttempted">
 
     <div class="hero-unit center">
         <h1>Code Not Found
@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="jumbotron" ng-show="foundCode">
+<div class="jumbotron" ng-show="foundCode && foundCode.gameIndex">
 
     <div class="hero-unit center">
         <h1>Congratulations!</h1>
