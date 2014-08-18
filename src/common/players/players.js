@@ -73,8 +73,9 @@ angular.module('players', [])
                 });
         };
 
-        playerFactory.savePlayer = function () {
+        playerFactory.savePlayer = function (playerName) {
             if (player && player.uuid == uuid) {
+                player.alias = playerName;
                 $http.put(urlBase + '/' + uuid, player)
                     .success(function (p) {
                         playerFactory.reload();

@@ -31,8 +31,8 @@ angular.module('qrHunt', [
 
         $scope.progress = 0.0;
 
-        $scope.savePlayer = function () {
-            playerFactory.savePlayer();
+        $scope.savePlayer = function (playerName) {
+            playerFactory.savePlayer(playerName);
         };
 
         var updatePlayerProgress = function () {

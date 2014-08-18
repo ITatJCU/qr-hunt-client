@@ -33,11 +33,11 @@
             <p class="navbar-text" ng-show="player.alias">Hi {{player.alias}}</p>
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
-            <form class="navbar-form navbar-left" role="setAlias" ng-hide="player.alias">
+            <form class="navbar-form navbar-left" role="" ng-hide="player.alias">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Set Your Alias" ng-model="player.alias">
+                    <input type="text" class="form-control" placeholder="Set Your Alias" ng-model="playerName">
                 </div>
-                <button type="submit" class="btn btn-default btn-primary" ng-click="savePlayer()">Save</button>
+                <button type="submit" class="btn btn-default btn-primary" ng-click="savePlayer(playerName)">Save</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
                 <li ui-sref-active="active" ng-click="menuCollapsed=true">

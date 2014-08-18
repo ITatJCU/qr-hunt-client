@@ -30,7 +30,6 @@ angular.module('qrHunt.scan', [
     .controller('ScanCtrl', function ScanController($scope, playerFactory) {
         $scope.reset = function () {
             playerFactory.resetPlayer();
-            playerFactory.reload();
         };
     })
 
