@@ -1,6 +1,5 @@
 angular.module( 'qrHunt.about', [
   'ui.router',
-  'placeholders',
   'ui.bootstrap'
 ])
 
