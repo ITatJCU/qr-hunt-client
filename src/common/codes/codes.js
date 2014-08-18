@@ -59,6 +59,17 @@ angular.module('codes', [])
         };
 
 
+        codeFactory.deleteCode = function (id) {
+            $http['delete'](urlBase + '/' + id)
+                .success(function () {
+                    getGameCodes();
+                    getCodes();
+                }).error(function (err) {
+                    console.log('qrHunt.services.codeFactory.deleteCode: Unable to remove code: ' + err.message);
+                });
+        };
+
+
         codeFactory.getCode = function (id, callback) {
             var c = null;
 

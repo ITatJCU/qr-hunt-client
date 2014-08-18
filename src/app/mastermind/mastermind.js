@@ -31,5 +31,12 @@ angular.module('qrHunt.mastermind', [
                 $scope.selectedCode = {};
             }
         };
+
+        $scope.deleteCode = function () {
+            if ($scope.selectedCode.id) {
+                codeFactory.deleteCode($scope.selectedCode.id);
+                $scope.selectedCode = {};
+            }
+        };
     });
 

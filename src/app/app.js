@@ -38,6 +38,8 @@ angular.module('qrHunt', [
         };
 
         var updatePlayerProgress = function () {
+            console.log($scope.player);
+            console.log($scope.gameCodes);
             if ($scope.player && $scope.player.scans && $scope.player.scans.length && $scope.gameCodes.length) {
                 $scope.progress = (($scope.player.scans.length + 0.0) / $scope.gameCodes.length) * 100;
             } else if ($scope.player && $scope.player.scans.length === 0) {
