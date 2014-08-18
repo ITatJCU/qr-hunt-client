@@ -39,8 +39,6 @@ angular.module('qrHunt.scan', [
 
         var setFound = function (code) {
             $scope.foundCode = code;
-            console.log(code);
-            console.log($scope.codes);
             if (code != null) {
                 playerFactory.scanned(code.id);
                 playerFactory.reload();
