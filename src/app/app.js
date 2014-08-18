@@ -25,8 +25,6 @@ angular.module('qrHunt', [
         });
 
         $scope.leaderboard = [];
-
-        $scope.players = [];
         $scope.player = {};
         $scope.codes = [];
         $scope.gameCodes = [];
@@ -46,7 +44,6 @@ angular.module('qrHunt', [
         };
 
         var updatePlayers = function () {
-            $scope.players = playerFactory.getPlayers();
             $scope.player = playerFactory.getPlayer();
             $scope.leaderboard = playerFactory.getLeaderboard();
             updatePlayerProgress();

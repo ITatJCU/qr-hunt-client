@@ -8,7 +8,6 @@ angular.module('players', [])
         var server = "http://127.0.0.1:8080";
         var urlBase = server + '/players';
         var playerFactory = {};
-        var players = [];
         var player = null;
 
         var leaderBoard = [];
@@ -47,16 +46,6 @@ angular.module('players', [])
                         });
                 });
         };
-
-        var getAllPlayers = function () {
-            $http.get(urlBase).success(function (p) {
-                players = p;
-                notifyObservers();
-            }).error(function (err) {
-                console.log('qrHunt.services.playerFactory.getPlayers: Unable to load players: ' + err.message);
-            });
-        };
-
         var getLeaderboard = function () {
             $http.get(server + '/leaderboard').success(function (leaders) {
                 leaderBoard = leaders;
@@ -65,8 +54,6 @@ angular.module('players', [])
                 console.log('qrHunt.services.playerFactory.getLeaderboard: Unable to load leaderboard: ' + err.message);
             });
         };
-
-
         var resetPlayer = function () {
             $http.put(urlBase + '/' + uuid + '/reset')
                 .success(function (p) {
@@ -76,7 +63,6 @@ angular.module('players', [])
                     console.log('qrHunt.services.playerFactory.getCurrentPlayer: Unable to load current player: ' + err.message);
                 });
         };
-
         var addScan = function (id) {
             $http.put(urlBase + '/' + uuid + '/' + id)
                 .success(function (p) {
@@ -99,7 +85,6 @@ angular.module('players', [])
         };
 
         playerFactory.reload = function () {
-            getAllPlayers();
             getPlayer();
             getLeaderboard();
         };
@@ -108,10 +93,6 @@ angular.module('players', [])
 
         playerFactory.getPlayer = function () {
             return player;
-        };
-
-        playerFactory.getPlayers = function () {
-            return players;
         };
 
         playerFactory.getLeaderboard = function () {

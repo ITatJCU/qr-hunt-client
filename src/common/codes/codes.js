@@ -28,18 +28,15 @@ angular.module('codes', [])
             });
         };
 
-        var getGameCodes = function () {
-            $http.get(server + '/gameCodes').success(function (c) {
-                gameCodes = c;
-                notifyObservers();
-            }).error(function (err) {
-                console.log('qrHunt.services.codeFactory.getGameCodes: Unable to load game codes: ' + err.message);
-            });
-        };
-
         var getCodes = function () {
             $http.get(urlBase).success(function (c) {
                 codes = c;
+                gameCodes = [];
+                for (var i = 0; i < codes.length; i++) {
+                    if (codes[i].gameIndex > 0) {
+                        gameCodes.push(codes[i]);
+                    }
+                }
                 notifyObservers();
             }).error(function (err) {
                 console.log('qrHunt.services.codeFactory.getCodes: Unable to load all codes: ' + err.message);
@@ -47,7 +44,6 @@ angular.module('codes', [])
 
         };
 
-        getGameCodes();
         getCodes();
 
         codeFactory.getCodes = function () {
@@ -89,7 +85,6 @@ angular.module('codes', [])
 
         codeFactory.saveCode = function (code) {
             $http.put(urlBase, code).success(function () {
-                getGameCodes();
                 getCodes();
             }).error(function (err) {
                 console.log('qrHunt.services.codeFactory.saveCode: Unable to save codes: ' + err.message);
@@ -97,7 +92,6 @@ angular.module('codes', [])
         };
 
         codeFactory.reload = function () {
-            getGameCodes();
             getCodes();
         };
         return codeFactory;
