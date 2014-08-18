@@ -43,7 +43,6 @@ angular.module('qrHunt.scan', [
             $scope.foundCode = code;
             if (code != null) {
                 playerFactory.scanned(code.id);
-                playerFactory.reload();
             }
         };
         if ($scope.foundCode == null && $scope.codes.length) {
