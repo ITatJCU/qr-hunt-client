@@ -32,20 +32,20 @@
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
             <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active">
+                <li ui-sref-active="active"  ng-click="menuCollapsed=true">
                     <a href ui-sref="home">
                         <i class="fa fa-home"></i>
                         Home
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a href ui-sref="scan">
+                    <a href ui-sref="scan" ng-click="menuCollapsed=true">
                         <i class="fa fa-mobile-phone"></i>
                         My Scans
                     </a>
                 </li>
                 <li ui-sref-active="active">
-                    <a href ui-sref="about">
+                    <a href ui-sref="about" ng-click="menuCollapsed=true">
                         <i class="fa fa-info-circle"></i>
                         What is it?
                     </a>
