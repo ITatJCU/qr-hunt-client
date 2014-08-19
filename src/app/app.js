@@ -9,6 +9,9 @@ angular.module('qrHunt', [
     'players',
     'codes'
 ])
+    .constant('SERVER_CONFIG', {
+        url: 'http://127.0.0.1:8080'
+    })
 
     .config(function myAppConfig($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/home');

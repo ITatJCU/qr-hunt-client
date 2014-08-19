@@ -1,11 +1,11 @@
 angular.module('players', [])
 
-    .factory('playerFactory', ['$http', function ($http) {
+    .factory('playerFactory', ['SERVER_CONFIG', '$http', function (SERVER_CONFIG, $http) {
 
         var observers = [];
 
         var uuid = new Fingerprint().get();
-        var server = "http://127.0.0.1:8080";
+        var server = SERVER_CONFIG.url;
         var urlBase = server + '/players';
         var playerFactory = {};
         var player = null;

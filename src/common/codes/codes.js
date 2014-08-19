@@ -1,10 +1,10 @@
 angular.module('codes', [])
 
-    .factory('codeFactory', ['$http', function ($http) {
+    .factory('codeFactory', ['SERVER_CONFIG','$http', function (SERVER_CONFIG,$http) {
 
         var observers = [];
 
-        var server = "http://127.0.0.1:8080";
+        var server = SERVER_CONFIG.url;
         var urlBase = server + '/codes';
         var codeFactory = {};
         var codes = [];
