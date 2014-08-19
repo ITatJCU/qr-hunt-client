@@ -1,7 +1,88 @@
 <div class="row">
     <h1 class="page-header">
-        To Do
-        <small>Including how it works</small>
+        Frequently Asked Questions
     </h1>
 </div>
 
+<div class="row">
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-user"></i> Why don't I need an account? </h4>
+
+        <p>The web client uses a method known as <em>browser fingerprinting</em> to generate an identifier for the web
+            browser without gathering any personal information. This methodology allows the system to identify, with up
+            to 94% accuracy, which pages a player visits.</p>
+
+        <p>This technique is often used by mobile advertisers to generate targeted advertisements.</p>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-user"></i> How is the game ranked? </h4>
+
+        <p>Each player has a <em>collected</em> number of scans linked to their player id, and a time stamp for each.
+            The server tasked with tracking all players compares the total number of codes <em>collected</em> and a
+            duration of time between the first and last code scanned.</p>
+
+        <p>The players with a higher total of scans, in the shortest period of time win.</p>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-qrcode"></i> Can I scan the same code twice? </h4>
+
+        <p>Yes, and it is encouraged! Scanning the same code changes the duration between first and last unique
+            scans.</p>
+
+        <p><em><strong>Find all the codes and race between them to reduce your time!</strong></em></p>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-graduation-cap"></i> Is this a student project?</h4>
+
+        <p>A student who was motivated by the idea volunteered themselves to implement QRHunt as pet project.</p>
+    </div>
+</div>
+
+<div class="row">
+    <h2 class="page-header">
+        Developer Related Questions
+    </h2>
+</div>
+<div class="row">
+    <h3 class=""><i class="fa fa-code"></i> What languages and frameworks are used? </h3>
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-mobile"></i> The Client</h4>
+
+        <p>The client makes use of a relatively new web orientated framework called
+            <a href="https://angularjs.org/" target="_blank" rel="AngularJS Website">AngularJS</a> by leveraging the
+            popular <a href="https://github.com/ngbp/ngbp" target="_blank" rel="ngbp">ngBoilerplate</a>
+            build management system in combination with the mobile-first front-end framework, <a
+                    href="http://getbootstrap.com/" target="_blank" rel="bootstrap">Twitter Bootstrap</a>.</p>
+
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-database"></i> The Server</h4>
+
+        <p>The server is written in JavaScript for the synchronous event driven framework
+            <a href="http://nodejs.org" target="_blank" rel="node">Node.js</a> and currently running on a RaspberryPi
+            somewhere in Townsville.
+        </p>
+
+        <p>Development time was reduced by utilising the
+            <a href="http://mcavage.me/node-restify/" target="_blank" rel="restify">restify</a> and
+            <a href="http://sequelizejs.com" target="_blank" rel="sequelize">Sequelize</a> modules for Node.js.</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <h4 class=""><i class="fa fa-github"></i> Is the source code available? </h4>
+
+        <p>All source code for the server and web orientated client are available for your viewing pleasure on GitHub
+            at:
+            <a href="http://github.com/ITatJCU/qr-hunt-client" target="_blank" rel="GitHub Client">QR Hunt Client</a>
+            and
+            <a href="http://github.com/ITatJCU/qr-hunt-server" target="_blank" rel="GitHub Server">QR Hunt Server</a>
+            respectively.
+        </p>
+    </div>
+</div>
