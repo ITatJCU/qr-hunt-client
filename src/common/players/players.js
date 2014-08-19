@@ -34,6 +34,13 @@ angular.module('players', [])
             $http.get(urlBase + '/' + uuid)
                 .success(function (p) {
                     player = p;
+                    var d;
+
+                    for (var i = 0; i < player.scans.length; i++) {
+                        d = new Date(player.scans[i].createdAt + " UTC");
+                        player.scans[i].createdAt = d.toISOString().slice(0, 10) + " " + d.toLocaleTimeString();
+                    }
+
                     notifyObservers();
                 }).error(function (err) {
                     $http.put(urlBase,
