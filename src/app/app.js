@@ -1,4 +1,5 @@
 angular.module('qrHunt', [
+    'btford.socket-io',
     'templates-app',
     'templates-common',
     'qrHunt.home',
@@ -6,12 +7,13 @@ angular.module('qrHunt', [
     'qrHunt.mastermind',
     'qrHunt.scan',
     'qrHunt.leaderboard',
+    'qrHunt.tracker',
     'ui.router',
     'players',
     'codes'
 ])
     .constant('SERVER_CONFIG', {
-        url: 'http://cadcoder.ddns.net:9999'
+        url: 'http://127.0.0.1:8080'
     })
 
     .config(function myAppConfig($stateProvider, $urlRouterProvider) {
@@ -20,7 +22,13 @@ angular.module('qrHunt', [
 
     .run(function run() {
     })
+    .factory('liveSocket', function (socketFactory,SERVER_CONFIG) {
+        var myIoSocket = io.connect(SERVER_CONFIG.url);
 
+        var mySocket = socketFactory({ioSocket: myIoSocket});
+        mySocket.forward('newScan');
+        return mySocket;
+    })
     .controller('AppCtrl', function AppCtrl($scope, $location, playerFactory, codeFactory) {
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             if (angular.isDefined(toState.data.pageTitle)) {

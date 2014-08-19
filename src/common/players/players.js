@@ -90,7 +90,9 @@ angular.module('players', [])
             getLeaderboard();
         };
         playerFactory.reload();
-
+        playerFactory.reloadLeaderboard = function () {
+            getLeaderboard();
+        };
 
         playerFactory.getPlayer = function () {
             return player;
