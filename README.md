@@ -12,12 +12,12 @@ The client is written for [AngularJS](https://angularjs.org/) leveraging the pop
 
 ### Building
 ```
-git clone git://github.com/ITatJCU/qr-hunt-client
-cd qr-hunt-client
-[sudo] npm install -g grunt-cli karma bower
-npm install
-bower install
-grunt watch
+$ git clone git://github.com/ITatJCU/qr-hunt-client
+$ cd qr-hunt-client
+$ [sudo] npm install -g grunt-cli karma bower
+$ npm install
+$ bower install
+$ grunt watch
 ```
 With `grunt` watching the project directory for changes, open the `index.html` file within the build sub-directory.
 
