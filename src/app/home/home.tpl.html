@@ -2,7 +2,7 @@
     <h1>Welcome {{player.alias || player.uuid}}</h1>
 
     <p class="lead" ng-if="!player.scans.length">
-        Welcome to JCU Open Day 2014.<br />
+        Welcome to JCU Open Day 2014.<br/>
         There have been numerous reports of QR codes lurking throughout the campus and we need your help to find them
         all!
         <br/>
@@ -28,5 +28,55 @@
              style="width: {{progress}}%;">
             {{progress}}%
         </div>
+    </div>
+</div>
+
+<div class="row">
+
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <h4><i class="fa fa-gamepad"></i> How do I play?</h4>
+
+        <p>There are several QR Codes hidden in plain sight around campus displays. Locate these codes and scan them
+            using a hand held device, after which you will be prompted to visit a website. Follow that link to collect
+            the scan.</p>
+    </div>
+
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <h4><i class="fa fa-question"></i> What do I need to scan these codes?</h4>
+
+        <p>Your hand held device will need an application or app capable of reading the QR Codes for you. There are
+            many capable apps available, however we recommend: </p>
+        <ul>
+            <li><i class="fa fa-android"></i> <a
+                    href="https://play.google.com/store/apps/details?id=la.droid.qr.priva&hl=en" target="_blank">QR
+                Droid Private</a>
+                for Android Devices
+            </li>
+            <li><i class="fa fa-apple"></i> <a
+                    href="https://itunes.apple.com/au/app/neoreader-qr-mobile-barcode/id284973754?mt=8" target="_blank">NeoReader</a>
+                for iOS Devices
+            </li>
+        </ul>
+        <p><em>Both of these apps are completely free.</em></p>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <h4><i class="fa fa-gift"></i> Are there prizes?</h4>
+
+        <p>Indeed there are! Every hour a representative of IT@JCU will announce the winners.
+            <br/>
+            There are prizes for the top three ranked players each round.</p>
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <h4><i class="fa fa-qrcode"></i> What am I looking for?</h4>
+
+        <p>You are looking for printed images that look like this: </p>
+        <img id="hunt-code" src="./assets/homepage_qr_code.png" alt="QR-Hunt Code" class="img-responsive"/>
     </div>
 </div>
