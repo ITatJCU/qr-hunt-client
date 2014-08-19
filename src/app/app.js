@@ -2,6 +2,7 @@ angular.module('qrHunt', [
     'btford.socket-io',
     'templates-app',
     'templates-common',
+    'ngAnimate',
     'qrHunt.home',
     'qrHunt.about',
     'qrHunt.mastermind',
@@ -22,7 +23,7 @@ angular.module('qrHunt', [
 
     .run(function run() {
     })
-    .factory('liveSocket', function (socketFactory,SERVER_CONFIG) {
+    .factory('liveSocket', function (socketFactory, SERVER_CONFIG) {
         var myIoSocket = io.connect(SERVER_CONFIG.url);
 
         var mySocket = socketFactory({ioSocket: myIoSocket});
