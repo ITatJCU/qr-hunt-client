@@ -1,5 +1,6 @@
 angular.module('qrHunt.mastermind', [
     'codes',
+    'players',
     'ui.router'
 ])
     .config(function config($stateProvider) {
@@ -12,6 +13,19 @@ angular.module('qrHunt.mastermind', [
                 }
             },
             data: { pageTitle: 'Mastermind' }
+        });
+    })
+
+    .config(function config($stateProvider) {
+        $stateProvider.state('winner', {
+            url: '/mastermind/win',
+            views: {
+                "main": {
+                    controller: 'MastermindWinCtrl',
+                    templateUrl: 'mastermind/win.tpl.html'
+                }
+            },
+            data: { pageTitle: 'Assign Winner' }
         });
     })
 
@@ -38,5 +52,16 @@ angular.module('qrHunt.mastermind', [
                 $scope.selectedCode = {};
             }
         };
-    });
+    })
+    .controller('MastermindWinCtrl', function MastermindWinController($scope, playerFactory) {
+
+        $scope.flagWinner = function (id) {
+            playerFactory.flagWinner(id);
+        };
+
+        $scope.removeWinnerFlag = function (id) {
+            playerFactory.removeWinnerFlag(id);
+        };
+    })
+;
 

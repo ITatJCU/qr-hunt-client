@@ -38,17 +38,14 @@ angular.module('qrHunt.scan', [
         $scope.findAttempted = false;
 
         var setFound = function (code) {
-            $scope.findAttempted = true;
-            $scope.foundCode = code;
             if (code != null) {
                 playerFactory.scanned(code.id);
+                $scope.foundCode = code;
             }
+            $scope.findAttempted = true;
         };
-        if ($scope.foundCode == null && $scope.codes.length) {
-            codeFactory.getCode($stateParams.codeId, function (result) {
-                setFound(result);
-            });
-        } else {
+
+        if ($scope.codes.length === 0) {
             codeFactory.addObserver(function () {
                 if ($scope.foundCode == null) {
                     codeFactory.getCode($stateParams.codeId, function (result) {
@@ -56,8 +53,11 @@ angular.module('qrHunt.scan', [
                     });
                 }
             });
+        } else if ($scope.foundCode == null && $scope.codes.length) {
+            codeFactory.getCode($stateParams.codeId, function (result) {
+                setFound(result);
+            });
         }
-
     })
 ;
 

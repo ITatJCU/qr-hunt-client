@@ -1,4 +1,4 @@
-<div class="jumbotron" ng-hide="foundCode" ng-show="!foundCode && findAttempted">
+<div class="jumbotron" ng-show="!foundCode && findAttempted">
 
     <div class="hero-unit center">
         <h1>Code Not Found
@@ -6,7 +6,7 @@
         </h1>
         <br/>
 
-        <p>Sneaky...But we're onto you {{player.alias || player.uuid}}.</p>
+        <p>Sneaky...But we're onto you {{player.alias || player.display}}.</p>
     </div>
 </div>
 

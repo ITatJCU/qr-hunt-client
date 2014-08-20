@@ -24,7 +24,9 @@
                 </thead>
                 <tbody>
                 <tr ng-animate="'animate'" ng-repeat="rank in leaderboard" class="animate-repeat">
-                    <td>{{$index+1}}</td>
+                    <td>
+                        <i class="fa fa-trophy" ng-show="rank.previousWinner"></i> {{$index+1}}
+                    </td>
                     <td>{{rank.alias || rank.playerId}}</td>
                     <td>{{rank.collected}}</td>
                     <td>{{rank.duration}} seconds</td>

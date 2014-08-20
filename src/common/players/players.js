@@ -104,6 +104,28 @@ angular.module('players', ['uuid4', 'ngCookies'])
                 }
             };
 
+            playerFactory.flagWinner = function (id) {
+
+                $http.put(urlBase + '/' + id + '/win', null)
+                    .success(function (p) {
+                        playerFactory.reload();
+                    }).error(function (err) {
+                        console.log('qrHunt.services.playerFactory.flagWinner: Unable to update current player: ' + err.message);
+                    });
+
+            };
+
+            playerFactory.removeWinnerFlag = function (id) {
+
+                $http.put(urlBase + '/' + id + '/oops', null)
+                    .success(function (p) {
+                        playerFactory.reload();
+                    }).error(function (err) {
+                        console.log('qrHunt.services.playerFactory.removeWinnerFlag: Unable to update current player: ' + err.message);
+                    });
+
+            };
+
             playerFactory.reload = function () {
                 getPlayer();
                 getLeaderboard();
