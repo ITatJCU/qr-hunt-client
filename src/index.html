@@ -5,9 +5,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- font awesome from BootstrapCDN -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
-
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>"/>
     <% }); %>
@@ -71,12 +68,19 @@
 </div>
 
 
+<div class="container">
+    <div class="alert alert-success" ng-show="progress >=20" role="alert">
+        <strong>You're eligible for a prize!</strong> Find us at the Information Technology (IT) displays.
+    </div>
+</div>
+
 <div class="container" ui-view="main"></div>
 
 <footer class="footer">
     <div class="container">
         <div class="footer-inner">
-            <a href="http://www.jcu.edu.au/" target="_blank" rel="JCU Website" class="pull-right"><img src="./assets/jcu_logo_mono.png"/></a>
+            <a href="http://www.jcu.edu.au/" target="_blank" rel="JCU Website" class="pull-right"><img
+                    src="./assets/jcu_logo_mono.png"/></a>
         </div>
     </div>
 </footer>

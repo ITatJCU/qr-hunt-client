@@ -1,5 +1,6 @@
 <div class="row">
 
+    <!-- Removed resetting of player.
     <div class="col-xs-12 col-sm-12 col-md-12">
         <form role="form-horizontal">
             <div class="form-group">
@@ -11,20 +12,19 @@
             </div>
         </form>
     </div>
+   -->
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <h4><i class="fa fa-qrcode"></i> Your Scans</h4>
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
                 <th>Title</th>
                 <th>Scanned At</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="scan in player.scans">
-                <td>{{scan.gameIndex}}</td>
                 <td>{{scan.title}}</td>
                 <td>{{scan.createdAt}}</td>
             </tr>
