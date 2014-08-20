@@ -30,7 +30,7 @@ angular.module('qrHunt', [
         mySocket.forward('newScan');
         return mySocket;
     })
-    .controller('AppCtrl', function AppCtrl($scope, $location, playerFactory, codeFactory) {
+    .controller('AppCtrl', function AppCtrl($scope, $location, playerFactory, codeFactory, $interval) {
         $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
             if (angular.isDefined(toState.data.pageTitle)) {
                 $scope.pageTitle = toState.data.pageTitle + ' | qrHunt';
@@ -42,6 +42,16 @@ angular.module('qrHunt', [
         $scope.codes = [];
         $scope.gameCodes = [];
         $scope.progress = 0.0;
+
+        $scope.minutesTillNextDraw = 60 - new Date().getMinutes();
+
+        var updateDrawTime = function () {
+            $scope.minutesTillNextDraw--;
+            if ($scope.minutesTillNextDraw < 0) {
+                $scope.minutesTillNextDraw = 60;
+            }
+        };
+        $interval(updateDrawTime, 60000, 0, false);
 
         $scope.savePlayer = function (playerName) {
             playerFactory.savePlayer(playerName);

@@ -29,6 +29,13 @@
             <a class="navbar-brand" href="#"><i class="fa fa-qrcode"></i> QRHunt</a>
 
             <p class="navbar-text" ng-show="player.alias">Hi {{player.alias}}</p>
+
+            <p class="navbar-text">{{minutesTillNextDraw}}
+                <ng-pluralize count="minutesTillNextDraw"
+                              when="{'0': 'minute', '1': 'minute','other': 'minutes'}">
+                </ng-pluralize>
+                remaining!
+            </p>
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
             <form class="navbar-form navbar-left" role="" ng-hide="player.alias">

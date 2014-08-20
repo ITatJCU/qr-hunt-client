@@ -1,7 +1,18 @@
+<div class="page-header">
+    <h1>Live Leader Board
+        <small>
+            {{minutesTillNextDraw}}
+            <ng-pluralize count="minutesTillNextDraw"
+                          when="{'0': 'minute', '1': 'minute','other': 'minutes'}">
+            </ng-pluralize>
+            until prizes!
+        </small>
+    </h1>
+</div>
+
 <div class="marketing">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <h4><i class="fa fa-users"></i> Leaderboard</h4>
             <table class="table table-striped">
                 <thead>
                 <tr>
