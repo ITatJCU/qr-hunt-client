@@ -33,6 +33,10 @@ angular.module('qrHunt.mastermind', [
 
         $scope.selectedCode = {};
 
+        $scope.clearCode = function () {
+            $scope.selectedCode = {};
+        };
+
         $scope.setSelectedCode = function (selectedId) {
             codeFactory.getCode(selectedId, function (code) {
                 $scope.selectedCode = code;
