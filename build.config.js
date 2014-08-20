@@ -75,6 +75,10 @@ module.exports = {
         css: [
         ],
         assets: [
+            'vendor/components-font-awesome/fonts/fontawesome-webfont.eot',
+            'vendor/components-font-awesome/fonts/fontawesome-webfont.svg',
+            'vendor/components-font-awesome/fonts/fontawesome-webfont.ttf',
+            'vendor/components-font-awesome/fonts/fontawesome-webfont.woff'
         ]
     },
 };
