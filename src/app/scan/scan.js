@@ -37,6 +37,7 @@ angular.module('qrHunt.scan', [
         $scope.foundCode = null;
         $scope.findAttempted = false;
 
+
         var setFound = function (code) {
             if (code != null) {
                 playerFactory.scanned(code.id);
@@ -58,6 +59,7 @@ angular.module('qrHunt.scan', [
                 setFound(result);
             });
         }
+
     })
 ;
 

@@ -8,7 +8,6 @@
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>"/>
     <% }); %>
-    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
 
     <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script>
@@ -28,7 +27,6 @@
             </button>
             <a class="navbar-brand" href="#"><i class="fa fa-qrcode"></i> QRHunt</a>
 
-            <p class="navbar-text" ng-show="player.alias">Hi {{player.alias}}</p>
 
             <p class="navbar-text">{{minutesTillNextDraw}}
                 <ng-pluralize count="minutesTillNextDraw"
@@ -38,6 +36,8 @@
             </p>
         </div>
         <div class="collapse navbar-collapse" collapse="menuCollapsed">
+            <p class="navbar-text" ng-show="player.alias">Hi {{player.alias}}</p>
+
             <form class="navbar-form navbar-left" role="" ng-hide="player.alias">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Set Your Alias" ng-model="playerName">

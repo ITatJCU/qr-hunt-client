@@ -12,6 +12,7 @@ angular.module('players', ['uuid4', 'ngCookies'])
 
             var leaderBoard = [];
 
+
             if (!$cookieStore.get('uuid')) {
                 $cookieStore.put('uuid', uuid4.generate().toString());
             }
@@ -24,10 +25,9 @@ angular.module('players', ['uuid4', 'ngCookies'])
 
                 if (player.scans) {
                     var d;
-
                     for (var i = 0; i < player.scans.length; i++) {
-                        d = new Date(player.scans[i].createdAt + " UTC");
-                        player.scans[i].createdAt = d.toISOString().slice(0, 10) + " " + d.toLocaleTimeString();
+                        d = moment(+moment.utc(player.scans[i].createdAt));
+                        player.scans[i].createdAt = d.format('YYYY-MM-DD HH:mm:ss');
                     }
                 }
 

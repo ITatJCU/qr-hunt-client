@@ -1,7 +1,8 @@
 angular.module('qrHunt.tracker', [
     'btford.socket-io',
     'players',
-    'ui.router'
+    'ui.router',
+    'urish.load'
 ])
     .config(function config($stateProvider) {
         $stateProvider.state('tracker', {
@@ -15,11 +16,19 @@ angular.module('qrHunt.tracker', [
             data: { pageTitle: 'Live Leaderboard' }
         });
     })
-    .controller('TrackerCtrl', function TrackerController($scope, liveSocket, playerFactory) {
-        liveSocket.forward('newScan', $scope);
+    .controller('TrackerCtrl', function TrackerController($scope, angularLoad, SERVER_CONFIG, playerFactory, socketFactory) {
 
-        $scope.$on('socket:newScan', function () {
-            playerFactory.reloadLeaderboard();
+        angularLoad.loadScript('https://cdn.socket.io/socket.io-1.0.6.js').then(function () {
+            var myIoSocket = io.connect(SERVER_CONFIG.url);
+
+            var mySocket = socketFactory({ioSocket: myIoSocket});
+            mySocket.forward('newScan');
+
+            $scope.$on('socket:newScan', function () {
+                playerFactory.reloadLeaderboard();
+            });
         });
+
+
     });
 
