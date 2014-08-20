@@ -2,24 +2,24 @@
     <h1>Welcome {{player.alias || player.uuid}}</h1>
 
     <p class="lead" ng-if="!player.scans.length">
-        Welcome to JCU Open Day 2014.<br/>
-        There have been numerous reports of QR codes lurking throughout the campus and we need your help to find them
-        all!
-        <br/>
+        Welcome to the QRHunt game for JCU Open Day 2014.<br/>
+        All around Open Day you will see QR codes that you need to scan with your mobile phone.<br/>
         There
         <ng-pluralize count="gameCodes.length"
-                      when="{'0': 'are no',
+                      when="{'0': 'are no codes',
                      'one': 'is one code',
                      'other': '{} codes'}">
         </ng-pluralize>
-        to locate! Hurry, as time is short!
+        to locate! Scan as many as you can to win prizes, including an iPod Nano!
     </p>
 
     <p class="lead" ng-if="player.scans.length">
         It appears you're well on the way to locating all the codes!
-
         <br/>
-        You've collected {{player.scans.length}} of {{gameCodes.length}} hidden codes.
+        You've collected {{player.scans.length}} of {{gameCodes.length}} hidden codes. <br/>
+        <strong ng-if="??">Keep going!</strong>
+        <strong ng-if="??">Congratulations!</strong>
+
     </p>
 
     <div class="progress" ng-if="gameCodes.length">
@@ -37,10 +37,11 @@
     <div class="col-xs-12 col-sm-6 col-md-4">
         <h4><i class="fa fa-gamepad"></i> How do I play?</h4>
 
-        <p>There are several QR Codes hidden in plain sight around campus displays. Locate these codes and scan them
-            using a hand held device, after which you will be prompted to visit a website. Follow that link to collect
-            the scan.</p>
-        <p>You are looking for printed images that resemble the image below: </p>
+        <p>There are a {{gameCodes.length}} QR Codes hidden in plain sight around campus displays. Locate these codes
+            and scan them using your mobile phone, which will take you to the game's website. That's all you have to do
+            for each code - scan it.</p>
+
+        <p>You are looking for printed images like the one below: </p>
         <img id="hunt-code" src="./assets/homepage_qr_code.png" alt="QR-Hunt Code" class="img-responsive"/>
     </div>
 
@@ -48,7 +49,7 @@
     <div class="col-xs-12 col-sm-6 col-md-4">
         <h4><i class="fa fa-question"></i> What do I need to scan these codes?</h4>
 
-        <p>Your hand held device will need an application or app capable of reading the QR Codes for you. There are
+        <p>Your mobile phone will need an app capable of reading the QR Codes for you. There are
             many capable apps available, however we recommend: </p>
         <ul>
             <li><i class="fa fa-android"></i> <a
@@ -57,19 +58,23 @@
                 for Android Devices
             </li>
             <li><i class="fa fa-apple"></i> <a
-                    href="https://itunes.apple.com/au/app/neoreader-qr-mobile-barcode/id284973754?mt=8" target="_blank">NeoReader</a>
+                    href="https://itunes.apple.com/au/app/qr-code-reader-by-scan/id698925807?mt=8" target="_blank">QR
+                Code Reader by Scan </a>
                 for iOS Devices
             </li>
         </ul>
-        <p><em>Both of these apps are completely free.</em></p>
+        <p><em>Both of these apps are free.</em></p>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-4">
         <h4><i class="fa fa-gift"></i> Are there prizes?</h4>
 
-        <p>Indeed there are! Every hour a representative of IT@JCU will announce the winners.
-            <br/>
-            There are prizes for the top three ranked players each round.</p>
+        <p>Indeed there are! Every hour (1, 2, 3 and 4pm), a IT@JCU will give out one <strong>16GB iPod Nano</strong> to
+            the highest
+            person on the leaderboard who is present (building 134).</p>
+
+        </p>You can also collect a nice small prize after you have scanned 20% of the codes available. Come to the IT
+        area to collect yours!</p>
     </div>
 
 </div>
