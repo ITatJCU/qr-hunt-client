@@ -18,6 +18,22 @@ angular.module('players', ['uuid4', 'ngCookies'])
 
             var uuid = $cookieStore.get('uuid');
 
+            var setPlayer = function (p) {
+                player = p;
+                player.display = player.uuid.substr(0, 8);
+
+                if (player.scans) {
+                    var d;
+
+                    for (var i = 0; i < player.scans.length; i++) {
+                        d = new Date(player.scans[i].createdAt + " UTC");
+                        player.scans[i].createdAt = d.toISOString().slice(0, 10) + " " + d.toLocaleTimeString();
+                    }
+                }
+
+                notifyObservers();
+            };
+
             playerFactory.addObserver = function (callback) {
                 observers.push(callback);
             };
@@ -39,24 +55,12 @@ angular.module('players', ['uuid4', 'ngCookies'])
             var getPlayer = function () {
                 $http.get(urlBase + '/' + uuid)
                     .success(function (p) {
-                        player = p;
-                        var d;
-
-                        for (var i = 0; i < player.scans.length; i++) {
-                            d = new Date(player.scans[i].createdAt + " UTC");
-                            player.scans[i].createdAt = d.toISOString().slice(0, 10) + " " + d.toLocaleTimeString();
-                        }
-
-                        player.display = player.uuid.substr(0, 8);
-
-                        notifyObservers();
+                        setPlayer(p);
                     }).error(function (err) {
                         $http.put(urlBase,
                             {uuid: uuid}
                         ).success(function (p) {
-                                player = p;
-                                player.display = player.uuid.substr(0, 8);
-                                notifyObservers();
+                                setPlayer(p);
                             }).error(function (e) {
                                 console.log('qrHunt.services.playerFactory.getCurrentPlayer: Unable to load current player: ' + e.message);
                             });
@@ -73,8 +77,7 @@ angular.module('players', ['uuid4', 'ngCookies'])
             var resetPlayer = function () {
                 $http.put(urlBase + '/' + uuid + '/reset')
                     .success(function (p) {
-                        player = p;
-                        notifyObservers();
+                        setPlayer(p);
                     }).error(function (err) {
                         console.log('qrHunt.services.playerFactory.getCurrentPlayer: Unable to load current player: ' + err.message);
                     });
@@ -82,7 +85,7 @@ angular.module('players', ['uuid4', 'ngCookies'])
             var addScan = function (id) {
                 $http.put(urlBase + '/' + uuid + '/' + id)
                     .success(function (p) {
-                        player = p;
+                        setPlayer(p);
                         getLeaderboard();
                     }).error(function (err) {
                         console.log('qrHunt.services.playerFactory.getCurrentPlayer: Unable to load current player: ' + err.message);

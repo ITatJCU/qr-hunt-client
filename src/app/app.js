@@ -41,7 +41,6 @@ angular.module('qrHunt', [
         $scope.player = {};
         $scope.codes = [];
         $scope.gameCodes = [];
-
         $scope.progress = 0.0;
 
         $scope.savePlayer = function (playerName) {
@@ -66,7 +65,6 @@ angular.module('qrHunt', [
             $scope.gameCodes = codeFactory.getGameCodes();
             updatePlayerProgress();
         };
-
 
         playerFactory.addObserver(updatePlayers);
         updatePlayers();
