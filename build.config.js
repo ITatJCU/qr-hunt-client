@@ -70,7 +70,9 @@ module.exports = {
             'vendor/angular-resource/angular-resource.min.js',
             'vendor/angular-animate/angular-animate.min.js',
             'vendor/fingerprint/fingerprint.js',
-            'vendor/angular-socket-io/socket.min.js'
+            'vendor/angular-socket-io/socket.min.js',
+            'vendor/angular-cookies/angular-cookies.min.js',
+            'vendor/angular-uuid4/angular-uuid4.min.js'
         ],
         css: [
         ],

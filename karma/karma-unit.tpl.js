@@ -55,7 +55,13 @@ module.exports = function ( karma ) {
      * the aesthetic advantage of not launching a browser every time you save.
      */
     browsers: [
-      'Chrome'
-    ]
+      'Small_Chrome'
+    ],
+    customLaunchers: {
+      Small_Chrome: {
+        base: 'Chrome',
+        flags: ['--window-size=250,250']
+      }
+    }
   });
 };

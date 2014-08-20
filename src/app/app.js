@@ -14,7 +14,7 @@ angular.module('qrHunt', [
     'codes'
 ])
     .constant('SERVER_CONFIG', {
-        url: 'http://cadcoder.ddns.net:9999'
+        url: 'http://127.0.0.1:8080'
     })
 
     .config(function myAppConfig($stateProvider, $urlRouterProvider) {
