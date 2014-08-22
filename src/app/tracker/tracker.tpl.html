@@ -27,7 +27,7 @@
                     <td>
                         <i class="fa fa-trophy" ng-show="rank.previousWinner"></i> {{$index+1}}
                     </td>
-                    <td>{{rank.alias || rank.playerId}}</td>
+                    <td>{{rank.alias || rank.playerId.substr(0,8)}}</td>
                     <td>{{rank.collected}}</td>
                     <td>{{rank.duration}} seconds</td>
                 </tr>
