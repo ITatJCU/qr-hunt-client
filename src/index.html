@@ -74,7 +74,11 @@
     </div>
 </div>
 
+<div class="container pull-up hidden-md hidden-sm hidden-lg" ng-show="!player.alias && player.scans.length <=1">
+    <i class="fa fa-arrow-up pull-right menu-identifier"></i>
 
+    <p class="pull-right"><em>Did you know you can set an alias by clicking on this menu button?</em></p>
+</div>
 <div class="container">
     <div class="alert alert-success" ng-show="progress >=20" role="alert">
         <strong>You're eligible for a prize!</strong> Find us at Education Central (building 134).
