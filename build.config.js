@@ -74,7 +74,9 @@ module.exports = {
             'vendor/angular-load/angular-load.min.js',
             'vendor/moment/min/moment.min.js',
             'vendor/textAngular/dist/textAngular-sanitize.min.js',
-            'vendor/textAngular/dist/textAngular.min.js'
+            'vendor/textAngular/dist/textAngular.min.js',
+            'vendor/angular-qr/lib/qrcode.js',
+            'vendor/angular-qr/src/angular-qr.js'
         ],
         css: [
         ],

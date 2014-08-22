@@ -12,7 +12,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="rank in leaderboard">
+                <tr ng-repeat="rank in leaderboard"
+                    ng-class="{player: player.uuid === rank.playerId}"
+
+                        >
                     <td>
                         <i class="fa fa-trophy" ng-show="rank.previousWinner"></i> {{$index+1}}
                     </td>

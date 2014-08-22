@@ -2,7 +2,8 @@ angular.module('qrHunt.mastermind', [
     'codes',
     'players',
     'ui.router',
-    'textAngular'
+    'textAngular',
+    'ja.qr'
 ])
     .config(function config($stateProvider) {
         $stateProvider.state('mastermind', {
@@ -34,6 +35,7 @@ angular.module('qrHunt.mastermind', [
 
         $scope.selectedCode = {};
 
+        $scope.qr = "";
         $scope.clearCode = function () {
             $scope.selectedCode = {};
         };
@@ -41,6 +43,7 @@ angular.module('qrHunt.mastermind', [
         $scope.setSelectedCode = function (selectedId) {
             codeFactory.getCode(selectedId, function (code) {
                 $scope.selectedCode = code;
+                $scope.qr = 'http://qr-hunt.com/#/scan/' + $scope.selectedCode.id;
             });
         };
 
@@ -57,6 +60,7 @@ angular.module('qrHunt.mastermind', [
                 $scope.selectedCode = {};
             }
         };
+
     })
     .controller('MastermindWinCtrl', function MastermindWinController($scope, playerFactory) {
 

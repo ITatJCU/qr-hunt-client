@@ -65,7 +65,9 @@ h2 {
   }
 }
 
-body { padding-top: 70px; }
+body {
+  padding-top: 70px;
+}
 
 /**
  * Footer
@@ -98,6 +100,28 @@ body { padding-top: 70px; }
           color: @gray;
         }
       }
+    }
+  }
+}
+
+qr {
+  img {
+    max-width: 100px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+tbody {
+  tr.selected {
+    td {
+      background-color: lighten(rgb(8, 72, 135, 50), 50) !important;
+    }
+  }
+  tr.player {
+    td {
+      background-color: lighten(#006400, 75) !important;
+      font-weight: bold;
     }
   }
 }
