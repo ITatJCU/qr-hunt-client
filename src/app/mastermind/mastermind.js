@@ -1,7 +1,8 @@
 angular.module('qrHunt.mastermind', [
     'codes',
     'players',
-    'ui.router'
+    'ui.router',
+    'textAngular'
 ])
     .config(function config($stateProvider) {
         $stateProvider.state('mastermind', {

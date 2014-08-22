@@ -73,6 +73,8 @@ module.exports = {
             'vendor/angular-uuid4/angular-uuid4.min.js',
             'vendor/angular-load/angular-load.min.js',
             'vendor/moment/min/moment.min.js',
+            'vendor/textAngular/dist/textAngular-sanitize.min.js',
+            'vendor/textAngular/dist/textAngular.min.js'
         ],
         css: [
         ],
