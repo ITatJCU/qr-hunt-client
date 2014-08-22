@@ -53,7 +53,8 @@ angular.module('qrHunt', [
         var updatePlayerProgress = function () {
             if ($scope.player && $scope.player.scans && $scope.player.scans.length && $scope.gameCodes.length) {
                 $scope.progress = (($scope.player.scans.length + 0.0) / $scope.gameCodes.length) * 100;
-                $scope.progress.toFixed(2);
+                $scope.progress = $scope.progress.toFixed(2);
+
             } else if ($scope.player && (!$scope.player.scans || $scope.player.scans.length === 0)) {
                 $scope.progress = 0.0;
             }
