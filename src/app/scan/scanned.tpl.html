@@ -1,4 +1,4 @@
-<div class="jumbotron" ng-show="!foundCode && findAttempted">
+<div class="jumbotron scan" ng-show="!foundCode && findAttempted">
 
     <div class="hero-unit center">
         <h1>Code Not Found
@@ -10,13 +10,17 @@
     </div>
 </div>
 
-<div class="jumbotron" ng-show="foundCode && foundCode.gameIndex">
+<div class="jumbotron scan" ng-show="foundCode && foundCode.gameIndex">
 
     <div class="hero-unit center">
-        <h1>Congratulations!</h1>
+        <h1>Great Work!</h1>
         <br/>
 
-        <p>You've found code #{{foundCode.gameIndex}} of {{gameCodes.length}}.</p>
+        <p>You've found {{player.scans.length}} of {{gameCodes.length}}
+            <ng-pluralize count="gameCodes.length"
+                          when="{'0': 'codes.', '1': 'code.','other': 'codes.'}">
+            </ng-pluralize>
+        </p>
 
 
         <div class="progress" ng-if="gameCodes.length">
