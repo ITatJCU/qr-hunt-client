@@ -19,10 +19,9 @@
         You've collected {{player.scans.length}} of {{gameCodes.length}} hidden codes. <br/>
         <strong ng-if="progress >=20 && progress < 50">Keep going!</strong>
         <strong ng-if="progress >=50">Congratulations!</strong>
-
     </p>
 
-    <div class="progress" ng-if="gameCodes.length">
+    <div class="progress" ng-show="player.scans.length">
         <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}"
              aria-valuemin="0" aria-valuemax="100"
              style="width: {{progress}}%;">
